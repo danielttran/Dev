@@ -1,0 +1,69 @@
+// NoteAppHandlers.idl : IDL source for NoteAppHandlers
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (NoteAppHandlers.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(1a3788eb-6594-470c-bb79-5baa0b11e6aa),
+	pointer_default(unique)
+]
+interface IPreview : IUnknown
+{
+};
+
+[
+	object,
+	uuid(e6eb073c-7463-4130-89e0-a8eb202b4c78),
+	pointer_default(unique)
+]
+interface IThumbnail : IUnknown
+{
+};
+
+[
+	object,
+	uuid(a7b03ff8-b62b-4172-8d05-fe0861e62b0e),
+	pointer_default(unique)
+]
+interface ISearch : IUnknown
+{
+};
+
+[
+	uuid(17d9eb88-fc02-4c34-acbf-b54a76bc472a),
+	version(1.0),
+]
+library NoteAppHandlersLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(94be135b-a5f7-4cf5-9e4c-75e6950ecbd8)
+	]
+	coclass Preview
+	{
+		[default] interface IPreviewHandler;
+	};
+	[
+		uuid(cffed064-5af5-4eee-932f-65fbf64e8667)
+	]
+	coclass Thumbnail
+	{
+		[default] interface IThumbnailProvider;
+	};
+	[
+		uuid(592d14a1-bd55-42f9-a500-8e5f80e81474)
+	]
+	coclass Search
+	{
+		[default] interface IFilter;
+	};
+};
+
+import "shobjidl.idl";
+import "thumbcache.idl";
+import "filter.idl";
