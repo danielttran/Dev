@@ -14,6 +14,8 @@
 
 #pragma once
 #include "OutputWnd.h"
+#include "CTreeViewPane.h"
+#include <afxcontrolbars.h>
 
 class CMainFrame : public CMDIFrameWndEx
 {
@@ -46,6 +48,7 @@ protected:  // control bar embedded members
 	CMFCRibbonStatusBar  m_wndStatusBar;
 	COutputWnd        m_wndOutput;
 	CMFCCaptionBar    m_wndCaptionBar;
+	CTreeViewPane m_wndTreeView;
 
 // Generated message map functions
 protected:
