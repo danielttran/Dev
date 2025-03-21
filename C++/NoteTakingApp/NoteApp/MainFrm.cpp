@@ -1,13 +1,3 @@
-// This MFC Samples source code demonstrates using MFC Microsoft Office Fluent User Interface
-// (the "Fluent UI") and is provided only as referential material to supplement the
-// Microsoft Foundation Classes Reference and related electronic documentation
-// included with the MFC C++ library software.
-// License terms to copy, use or distribute the Fluent UI are available separately.
-// To learn more about our Fluent UI licensing program, please visit
-// https://go.microsoft.com/fwlink/?LinkId=238214.
-//
-// Copyright (C) Microsoft Corporation
-// All rights reserved.
 
 // MainFrm.cpp : implementation of the CMainFrame class
 //
@@ -54,8 +44,6 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CMDIFrameWndEx::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	//BOOL bNameValid;
-
 	CMDITabInfo mdiTabParams;
 	mdiTabParams.m_style = CMFCTabCtrl::STYLE_3D_ONENOTE;
 	mdiTabParams.m_bActiveTabCloseButton = TRUE;
@@ -73,7 +61,14 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 	}
 
-	// ... status bar code remains the same ...
+	CString strTitlePane1;
+	CString strTitlePane2;
+	BOOL bNameValid = strTitlePane1.LoadString(IDS_STATUS_PANE1);
+	ASSERT(bNameValid);
+	bNameValid = strTitlePane2.LoadString(IDS_STATUS_PANE2);
+	ASSERT(bNameValid);
+	m_wndStatusBar.AddElement(new CMFCRibbonStatusBarPane(ID_STATUSBAR_PANE1, strTitlePane1, TRUE), strTitlePane1);
+	m_wndStatusBar.AddExtendedElement(new CMFCRibbonStatusBarPane(ID_STATUSBAR_PANE2, strTitlePane2, TRUE), strTitlePane2);
 
 	CDockingManager::SetDockingMode(DT_SMART);
 	EnableAutoHidePanes(CBRS_ALIGN_ANY);
