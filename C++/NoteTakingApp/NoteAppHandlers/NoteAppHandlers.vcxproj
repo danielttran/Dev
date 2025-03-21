@@ -74,6 +74,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
     <LinkIncremental>true</LinkIncremental>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -114,7 +115,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <ModuleDefinitionFile>.\NoteAppHandlers.def</ModuleDefinitionFile>
-      <RegisterOutput>true</RegisterOutput>
+      <RegisterOutput>false</RegisterOutput>
     </Link>
     <PostBuildEvent>
       <Message>Setting permissions on handler DLL (to enable load by SearchFilterHost.exe)...</Message>
